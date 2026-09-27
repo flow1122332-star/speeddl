@@ -2,489 +2,243 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+
+<!-- IMPORTANT VIEWPORT (already correct) -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>SpeedDL - Free Instagram Video, Reels & Photo Downloader</title>
-<meta name="description" content="Download Instagram Videos, Reels, Photos, IGTV & Stories in HD quality for free. No login, no watermark, works on all devices.">
-<meta name="robots" content="index, follow">
-<meta name="theme-color" content="#F59E0B">
 
-<link rel="preload" href="assets/icons/logo-icon-yellow.webp" as="image">
-<link rel="preload" href="assets/icons/logo-text-yellow.webp" as="image">
-<link rel="preconnect" href="http://YOUR_BACKEND_URL">
-<link rel="dns-prefetch" href="http://YOUR_BACKEND_URL">
+<title>SpeedDL - Instagram Downloader</title>
 
-<meta property="og:title" content="SpeedDL - Free Instagram Downloader">
-<meta property="og:description" content="Download Instagram Videos, Reels, Photos, IGTV & Stories in HD for free.">
-<meta property="og:image" content="https://speeddl.pages.dev/assets/icons/og-image.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:url" content="https://speeddl.pages.dev">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="SpeedDL">
-<meta property="og:locale" content="en">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="SpeedDL - Free Instagram Downloader">
-<meta name="twitter:description" content="Download Instagram Videos, Reels, Photos, IGTV & Stories in HD for free.">
-<meta name="twitter:image" content="https://speeddl.pages.dev/assets/icons/og-image.jpg">
-
-<link rel="canonical" href="https://speeddl.pages.dev">
-<link rel="icon" href="favicon.ico" sizes="32x32">
-<link rel="icon" href="favicon-32x32.png" type="image/png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {"@type": "WebSite", "name": "SpeedDL", "url": "https://speeddl.pages.dev"},
-    {"@type": "WebPage", "name": "SpeedDL - Free Instagram Downloader", "url": "https://speeddl.pages.dev", "inLanguage": "en"},
-    {"@type": "Organization", "name": "SpeedDL", "url": "https://speeddl.pages.dev"},
-    {"@type": "WebApplication", "name": "SpeedDL", "url": "https://speeddl.pages.dev", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Windows, Linux, iOS, Android, macOS", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}},
-    {"@type": "FAQPage", "mainEntity": [
-      {"@type": "Question", "name": "Is SpeedDL free to use?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, SpeedDL is 100% free."}},
-      {"@type": "Question", "name": "Do I need to log in?", "acceptedAnswer": {"@type": "Answer", "text": "No login is required."}},
-      {"@type": "Question", "name": "Can I download Instagram Reels in HD?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, SpeedDL automatically detects the best quality."}},
-      {"@type": "Question", "name": "Does SpeedDL add a watermark?", "acceptedAnswer": {"@type": "Answer", "text": "No, SpeedDL never adds watermarks."}},
-      {"@type": "Question", "name": "Which devices are supported?", "acceptedAnswer": {"@type": "Answer", "text": "Any device with a modern browser."}},
-      {"@type": "Question", "name": "Can I download private videos?", "acceptedAnswer": {"@type": "Answer", "text": "No, only public content."}},
-      {"@type": "Question", "name": "How do I download Stories?", "acceptedAnswer": {"@type": "Answer", "text": "Copy the Story link, paste it, and click Download."}},
-      {"@type": "Question", "name": "Is it legal to download Instagram content?", "acceptedAnswer": {"@type": "Answer", "text": "Downloading public content for personal use is generally acceptable."}}
-    ]}
-  ]
-}
-</script>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+<!-- ================= HEADER ================= -->
 <header>
   <div class="container hi">
+
     <a href="/" class="logo">
-      <img src="assets/icons/logo-icon-yellow.webp" alt="SpeedDL" width="52" height="52">
-      <img src="assets/icons/logo-text-yellow.webp" alt="SpeedDL" height="30">
+      <img src="assets/icons/logo-icon-yellow.webp">
+      <img src="assets/icons/logo-text-yellow.webp">
     </a>
+
     <nav>
-      <a href="faq.html" class="keep">FAQ</a>
-      <div id="google_translate_element" class="lang-selector"></div>
-      <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">
-        <img src="assets/icons/svg/moon.svg" alt="Dark mode" class="icon-moon" width="22" height="22">
-        <img src="assets/icons/svg/sun.svg" alt="Light mode" class="icon-sun" width="22" height="22">
-      </button>
+      <a href="faq.html">FAQ</a>
+      <button class="theme-btn">🌙</button>
     </nav>
+
   </div>
 </header>
 
+<!-- ================= HERO ================= -->
 <section class="hero">
   <div class="container">
 
-    <div class="cat-nav">
-      <a href="video.html" class="cat-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="5" width="20" height="14" rx="2"/>
-          <path d="M10 9l5 3-5 3V9z" fill="currentColor" stroke="none"/>
-        </svg>
-        <span>Video</span>
-      </a>
-      <a href="photo.html" class="cat-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="3" width="18" height="18" rx="2"/>
-          <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor" stroke="none"/>
-          <path d="M21 15l-5-5L5 21"/>
-        </svg>
-        <span>Photo</span>
-      </a>
-      <a href="reels.html" class="cat-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="2" width="20" height="20" rx="3"/>
-          <line x1="7" y1="2" x2="7" y2="22"/>
-          <line x1="17" y1="2" x2="17" y2="22"/>
-          <line x1="2" y1="12" x2="22" y2="12"/>
-          <line x1="2" y1="7" x2="7" y2="7"/>
-          <line x1="2" y1="17" x2="7" y2="17"/>
-          <line x1="17" y1="7" x2="22" y2="7"/>
-          <line x1="17" y1="17" x2="22" y2="17"/>
-          <path d="M10 9l4 3-4 3V9z" fill="currentColor" stroke="none"/>
-        </svg>
-        <span>Reels</span>
-      </a>
-      <a href="story.html" class="cat-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"/>
-          <circle cx="12" cy="12" r="4" opacity="0.5"/>
-          <line x1="12" y1="8" x2="12" y2="16"/>
-          <line x1="8" y1="12" x2="16" y2="12"/>
-        </svg>
-        <span>Story</span>
-      </a>
-      <a href="igtv.html" class="cat-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="4" width="20" height="16" rx="2"/>
-          <line x1="8" y1="20" x2="8" y2="22"/>
-          <line x1="16" y1="20" x2="16" y2="22"/>
-          <line x1="6" y1="22" x2="10" y2="22"/>
-          <line x1="14" y1="22" x2="18" y2="22"/>
-          <path d="M10 9l5 3-5 3V9z" fill="currentColor" stroke="none"/>
-        </svg>
-        <span>Igtv</span>
-      </a>
-      <a href="carousel.html" class="cat-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="6" y="2" width="14" height="14" rx="2" opacity="0.4"/>
-          <rect x="4" y="4" width="14" height="14" rx="2" opacity="0.7"/>
-          <rect x="2" y="6" width="14" height="14" rx="2" fill="none"/>
-        </svg>
-        <span>Carousel</span>
-      </a>
-      <a href="viewer.html" class="cat-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-          <circle cx="12" cy="12" r="3" fill="currentColor" stroke="none"/>
-        </svg>
-        <span>Viewer</span>
-      </a>
+    <!-- 🔥 NEW PREMIUM TABS -->
+    <div class="cat-nav new-tabs">
+      <button class="tab active">Download</button>
+      <button class="tab">Photo</button>
+      <button class="tab">Reels</button>
+      <button class="tab">Story</button>
+      <button class="tab">IGTV</button>
+      <button class="tab">Carousel</button>
+      <button class="tab">Viewer</button>
     </div>
 
+    <!-- HEADING -->
     <h1>Instagram Downloader</h1>
-    <p class="subtitle">Download Instagram Videos, Photos, Reels, IGTV & carousel</p>
+    <p class="subtitle">
+      Download Instagram Videos, Photos, Reels, IGTV & Carousel
+    </p>
 
-    <div class="input-box">
-      <input type="text" id="urlInput" placeholder="Insert instagram link here" autocomplete="off">
-      <button type="button" class="paste-btn" id="pasteBtn">
-        <img src="assets/icons/svg/clipboard.svg" alt="" width="16" height="16">
-        <span>Paste</span>
-      </button>
-      <button type="button" class="clear-btn hidden" id="clearBtn">
-        <img src="assets/icons/svg/close.svg" alt="" width="16" height="16">
-        <span>Clear</span>
-      </button>
-      <button id="downloadBtn">Download</button>
+    <!-- 🔥 PREMIUM INPUT -->
+    <div class="input-box premium-input">
+
+      <input type="text" placeholder="Paste Instagram link here...">
+
+      <button class="paste-btn">Paste</button>
+
+      <button class="download-btn">Download</button>
+
     </div>
-    <p id="status" class="status"></p>
 
+    <!-- OPTIONAL LOGO -->
     <div class="hero-logo">
-      <img src="assets/icons/logo-icon-white.webp" alt="SpeedDL" width="150" height="150">
-      <img src="assets/icons/logo-text-white.webp" alt="SpeedDL" height="110">
+      <img src="assets/icons/logo-icon-white.webp">
+      <img src="assets/icons/logo-text-white.webp">
     </div>
+
   </div>
-</section>
-
-<section id="loading" class="loading-section hidden">
-  <div class="container">
-    <div class="loading-dots">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <p class="loading-text" id="loadingText">We are downloading the reel. Please wait :)</p>
-  </div>
-</section>
-
-<section id="results" class="results-section hidden">
-  <div class="container">
-    <h2 class="result-heading">Search result</h2>
-    <div id="resultContent"></div>
-  </div>
-</section>
-
-<div id="homeContent">
-
-  <!-- Feature Showcase -->
-  <section class="section">
-    <div class="container">
-      <div class="feature-showcase">
-        <div class="feature-showcase-image">
-          <img src="assets/icons/images/feature-main.jpg" alt="SpeedDL - Instagram Downloader" loading="lazy">
-        </div>
-        <div class="feature-showcase-text">
-          <h2>Instagram Videos and Photos Download</h2>
-          <p>SpeedDL is an online web tool that helps you download Instagram Videos, Photos, Reels, and IGTV. SpeedDL is designed to be easy to use on any device, such as a mobile phone, tablet, or computer.</p>
-        </div>
-      </div>
-    </div>
   </section>
-
-  <!-- How to Download -->
-  <section id="how" class="section alt">
-    <div class="container">
-      <h2>How to download from Instagram?</h2>
-      <p class="section-desc">You must follow these three easy steps to download video, reels, and photo from Instagram (IG, Insta). Follow the simple steps below.</p>
-      <div class="steps">
-        <div class="step">
-          <div class="step-image-wrapper">
-            <img src="assets/icons/images/step1.webp" alt="Copy the URL" class="step-image" loading="lazy">
-          </div>
-          <h3>Copy the URL</h3>
-          <p>Open the Instagram application or website, copy the URL of the photo, video, reels, carousel, IGTV.</p>
-        </div>
-        <div class="step">
-          <div class="step-image-wrapper">
-            <img src="assets/icons/images/step2.webp" alt="Paste the link" class="step-image" loading="lazy">
-          </div>
-          <h3>Paste the link</h3>
-          <p>Return to the SpeedDL website, paste the link into the input field and click the "Download" button.</p>
-        </div>
-        <div class="step">
-          <div class="step-image-wrapper">
-            <img src="assets/icons/images/step3.webp" alt="Download" class="step-image" loading="lazy">
-          </div>
-          <h3>Download</h3>
-          <p>Quickly you will get the results with several quality options. Download what fits your needs.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Address Bar -->
-  <section class="section">
-    <div class="container">
-      <h2>Download Instagram content from your address bar</h2>
-      <div class="address-bar-box">
-        <div class="ab-visual">
-          <img src="assets/icons/address-bar.webp" alt="Address bar example" loading="lazy">
-        </div>
-        <div class="ab-text">
-          <p>Add <code>sdl.app/</code> before any Instagram URL in your browser's address bar. No need to open the website first.</p>
-          <p>For example: <code>sdl.app/https://www.instagram.com/reel/DO5tIDME6t-/</code></p>
-          <p>Press Enter and you'll get the download page. Save videos, photos, Reels, IGTV, or carousels in their original quality.</p>
-          <p>Works on phones, tablets, and computers. No app or account needed.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Choose SpeedDL -->
-  <section class="section alt">
-    <div class="container">
-      <h2>Choose SpeedDL for download from Instagram</h2>
-      <p class="section-desc">Downloading videos from Instagram in just two clicks is possible without compromising on quality. Avoid using unreliable applications and appreciate the videos, even if they are of lower quality.</p>
-      <div class="features">
-        <div class="feature">
-          <img src="assets/icons/fast-download.webp" alt="Fast download" class="feature-icon" loading="lazy" width="80" height="80">
-          <h3>Fast download</h3>
-          <p>Our servers are optimized to provide you with the fastest download speeds.</p>
-        </div>
-        <div class="feature">
-          <img src="assets/icons/all-devices.webp" alt="Support for all devices" class="feature-icon" loading="lazy" width="80" height="80">
-          <h3>Support for all devices</h3>
-          <p>Whether you're on a mobile, tablet, or desktop, SpeedDL has got you covered.</p>
-        </div>
-        <div class="feature">
-          <img src="assets/icons/high-quality.webp" alt="High quality" class="feature-icon" loading="lazy" width="80" height="80">
-          <h3>High quality</h3>
-          <p>Download Instagram content in its original quality without any loss.</p>
-        </div>
-        <div class="feature">
-          <img src="assets/icons/secure.webp" alt="Security" class="feature-icon" loading="lazy" width="80" height="80">
-          <h3>Security</h3>
-          <p>We prioritize your privacy. No login required and all downloads are processed securely.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-    <!-- SpeedDL Features (7 Rows) -->
-  <section class="section">
-    <div class="container">
-      <h2>SpeedDL features</h2>
-      <p class="section-desc">With SpeedDL you can download any type of content from Instagram. Our service has an IG video downloader, Reels, IGTV, photo or carousel.</p>
-
-      <div class="feature-row">
-        <div class="feature-row-image"><img src="assets/icons/images/video-downloader.webp" alt="Video Downloader" loading="lazy"></div>
-        <div class="feature-row-text">
-          <h3>Video Downloader</h3>
-          <p>SpeedDL supports Instagram video download for singular videos and multiple videos from carousels. SpeedDL is created to enable you to download IG videos from your personal page.</p>
-        </div>
-      </div>
-
-      <div class="feature-row reverse">
-        <div class="feature-row-image"><img src="assets/icons/images/photo-downloader.webp" alt="Photos Downloader" loading="lazy"></div>
-        <div class="feature-row-text">
-          <h3>Photos Downloader</h3>
-          <p>Instagram photo download provided by SpeedDL is a great tool for saving images from Instagram posts. With SpeedDL, you can download a single post image and multiple Instagram photos (carousel).</p>
-        </div>
-      </div>
-
-      <div class="feature-row">
-        <div class="feature-row-image"><img src="assets/icons/images/reels-downloader.webp" alt="Reels Downloader" loading="lazy"></div>
-        <div class="feature-row-text">
-          <h3>Reels Downloader</h3>
-          <p>Reels is a new video format that clones the principle of TikTok. Instagram Reels download with the help of SpeedDL. Our Instagram Reels downloader can help you to save your favorite Reels videos.</p>
-        </div>
-      </div>
-
-      <div class="feature-row reverse">
-        <div class="feature-row-image"><img src="assets/icons/images/igtv-downloader.webp" alt="IGTV Downloader" loading="lazy"></div>
-        <div class="feature-row-text">
-          <h3>IGTV Downloader</h3>
-          <p>IGTV is a long video type. If you can't watch it now, you can download IGTV videos to your device to be sure that you can return to watching later, without the need to be online or in case the IGTV can be deleted.</p>
-        </div>
-      </div>
-
-      <div class="feature-row">
-        <div class="feature-row-image"><img src="assets/icons/images/carousel-downloader.webp" alt="Carousel Downloader" loading="lazy"></div>
-        <div class="feature-row-text">
-          <h3>Carousel / Album Downloader</h3>
-          <p>Carousel, also known as Album or Gallery posts type with multiple photos, videos, or mixed content. If you need to download multiple photos from Instagram, SpeedDL is the best to download gallery.</p>
-        </div>
-      </div>
-
-      <div class="feature-row reverse">
-        <div class="feature-row-image"><img src="assets/icons/images/story-downloader.webp" alt="Story Downloader" loading="lazy"></div>
-        <div class="feature-row-text">
-          <h3>Story Downloader</h3>
-          <p>Instagram Story Saver by SpeedDL is your go-to tool for effortlessly downloading any Instagram story straight to your device while remaining completely anonymous. Whether you wish to re-upload, repost, or simply save your favorite stories to your own media library for later viewing with friends.</p>
-        </div>
-      </div>
-
-      <div class="feature-row">
-        <div class="feature-row-image"><img src="assets/icons/images/viewer-downloader.webp" alt="Stories Viewer" loading="lazy"></div>
-        <div class="feature-row-text">
-          <h3>Stories Viewer</h3>
-          <p>SpeedDL Instagram Stories Viewer is a complimentary tool that enables anonymous viewing of Instagram stories from public profiles without the need for Instagram user authentication. The platform offers a range of free features.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" class="section alt">
-    <div class="container">
-      <h2>Frequently asked questions (FAQ)</h2>
-      <p class="section-desc">This FAQ provides information on frequent questions or concerns about the SpeedDL downloader.</p>
-      <div class="faq-list">
-        <div class="faq-item">
-          <h3>What exactly is SpeedDL?</h3>
-          <p>SpeedDL is a browser-based helper that lets you save public Instagram content - videos, photos, Reels, Stories, IGTV and carousels - to your own device for offline viewing. It works straight from the website; no software install is required.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Is downloading from Instagram legal?</h3>
-          <p>Saving public posts for personal use is generally allowed, but copyright always belongs to the creator. Please keep the files private unless you have the owner's permission to share or reuse them.</p>
-        </div>
-        <div class="faq-item">
-          <h3>What formats and quality do you offer?</h3>
-          <p>Photos arrive as JPG. Videos save as MP4, typically in HD 720p if the source was uploaded in that quality. No watermarks are added.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Do I need to log in or create an account?</h3>
-          <p>No. Just paste the Instagram link - there's no registration, no Instagram credentials, and no cookies that track you across the web.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Are there any limits on daily downloads?</h3>
-          <p>None at all. Download one item or a hundred - our servers don't impose caps.</p>
-        </div>
-        <div class="faq-item">
-          <h3>How do I download a post?</h3>
-          <p>Copy the link to the Instagram post or Reel. Go to SpeedDL, paste the link into the field, and hit Download. Pick the quality you want; the file is delivered instantly.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Can I grab content from private accounts?</h3>
-          <p>Sorry, no. We respect user privacy, so only public posts are accessible. If you can't view the post in a logged-out browser tab, SpeedDL can't fetch it either.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Which devices and browsers are supported?</h3>
-          <p>Any modern browser on Windows, macOS, Linux, Android, iOS or even ChromeOS. Tested in Chrome, Safari, Firefox, Edge, Opera and Brave - both desktop and mobile versions.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Where do the files go on my phone or computer?</h3>
-          <p>On desktop they land in your default "Downloads" folder. On mobile you can find them in the browser's downloads list or the "Files" app. Most gallery apps will index them automatically.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Is my link history stored on your servers?</h3>
-          <p>No. Links are processed in real time; once the download link is generated and delivered, both the original URL and the converted file are wiped from our cache.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Why might the speed drop?</h3>
-          <p>A slow network, heavy ISP throttling or Instagram rate-limits can reduce throughput. Switching to another Wi-Fi, disabling a VPN, or trying a different browser usually fixes it.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="cta-section">
-    <div class="container" style="text-align: center;">
-      <h2>Discover why SpeedDL is trusted by over 30 million users worldwide</h2>
-      <p>Download Instagram Videos, Photos, Reels, Stories, and IGTV online - fast and free.</p>
-      <a href="#how" class="cta-btn">
-        <span>Try for free</span>
-        <img src="assets/icons/svg/arrow.svg" alt="" width="20" height="20">
-      </a>
-      <div class="cta-features">
-        <span>Faster downloads</span>
-        <span>Always free</span>
-        <span>Cross-platform</span>
-      </div>
-    </div>
-  </section>
-
-</div>
-<!-- END homeContent -->
-
-<!-- ===== BACK TO TOP ===== -->
-<button id="backToTop" class="back-to-top" aria-label="Back to top">
-  <img src="assets/icons/svg/arrow.svg" alt="" width="20" height="20" style="transform: rotate(-90deg);">
-</button>
-
-<!-- ===== FOOTER ===== -->
-<footer>
-  <div class="container">
-    <div class="footer-logo">
-      <img src="assets/icons/logo-icon-yellow.webp" alt="SpeedDL" width="45" height="45">
-      <img src="assets/icons/logo-text-yellow.webp" alt="SpeedDL" height="28">
-    </div>
-
-    <nav class="footer-nav-cats">
-      <a href="video.html">Video</a><span>|</span>
-      <a href="photo.html">Photo</a><span>|</span>
-      <a href="reels.html">Reels</a><span>|</span>
-      <a href="story.html">Story</a><span>|</span>
-      <a href="viewer.html">Viewer</a><span>|</span>
-      <a href="igtv.html">Igtv</a><span>|</span>
-      <a href="carousel.html">Carousel</a>
-    </nav>
-
-    <nav class="footer-nav-links">
-      <a href="about.html">About SpeedDL</a><span>|</span>
-      <a href="mp4.html">Instagram to MP4</a><span>|</span>
-      <a href="api.html">API</a><span>|</span>
-      <a href="mcp.html">MCP</a><span>|</span>
-      <a href="contact.html">Contact</a><span>|</span>
-      <a href="privacy.html">Privacy Policy</a><span>|</span>
-      <a href="terms.html">Terms &amp; Conditions</a><span>|</span>
-      <a href="dmca.html">DMCA</a>
-    </nav>
-
-    <p class="footer-social-label">follow us:</p>
-    <div class="footer-social">
-      <a href="#" aria-label="Instagram"><img src="assets/icons/instagram.png" alt="Instagram" loading="lazy" width="22" height="22"></a>
-      <a href="#" aria-label="Facebook"><img src="assets/icons/facebook.png" alt="Facebook" loading="lazy" width="22" height="22"></a>
-      <a href="#" aria-label="YouTube"><img src="assets/icons/youtube.png" alt="YouTube" loading="lazy" width="22" height="22"></a>
-      <a href="#" aria-label="X"><img src="assets/icons/twitter.png" alt="X" loading="lazy" width="22" height="22"></a>
-      <a href="#" aria-label="TikTok"><img src="assets/icons/tiktok.png" alt="TikTok" loading="lazy" width="22" height="22"></a>
-    </div>
-
-    <p class="footer-copy">© 2024-<span id="year"></span> SpeedDL. All rights reserved.</p>
-  </div>
-</footer>
-
-<!-- Google Translate -->
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({
-    pageLanguage: 'en',
-    includedLanguages: 'en,hi,bn,ta,te,mr,gu,kn,ml,pa,ur,ar,es,fr,de,it,pt,ru,ja,ko,zh-CN,id,ms,th,tr,vi,nl,pl,fa',
-    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-    autoDisplay: false
-  }, 'google_translate_element');
+  /* ===============================
+   🔥 PREMIUM HERO UPGRADE
+================================ */
+.hero {
+  background: linear-gradient(135deg, #FBBF24, #F97316);
+  padding: 60px 0 140px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
 }
-</script>
-<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-<script src="script.js"></script>
-</body>
-</html>
+/* Glow effect */
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255,255,255,0.25), transparent 70%);
+  top: -150px;
+  left: -150px;
+}
+
+/* ===============================
+   🔥 PREMIUM TABS
+================================ */
+.new-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(10px);
+}
+
+.tab:hover {
+  background: rgba(255,255,255,0.3);
+  transform: translateY(-2px);
+}
+
+.tab.active {
+  background: linear-gradient(135deg, #fff, #ffe08a);
+  color: #000;
+  border: none;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+/* ===============================
+   🔥 PREMIUM INPUT BOX
+================================ */
+.premium-input {
+  display: flex;
+  max-width: 750px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.95);
+  border-radius: 14px;
+  padding: 8px;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.25);
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: blur(10px);
+}
+
+/* input */
+.premium-input input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 16px;
+  font-size: 15px;
+  border-radius: 10px;
+}
+
+/* paste button */
+.premium-input .paste-btn {
+  background: #eee;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.premium-input .paste-btn:hover {
+  background: #ddd;
+}
+
+/* 🔥 DOWNLOAD BUTTON FIX */
+.download-btn {
+  background: linear-gradient(135deg, #FBBF24, #F97316);
+  color: #fff;
+  padding: 14px 26px;
+  border-radius: 10px;
+  font-weight: 700;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* ===============================
+   🔥 HEADING IMPROVE
+================================ */
+.hero h1 {
+  font-size: 50px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 18px;
+  opacity: 0.95;
+  margin-bottom: 30px;
+}
+
+/* ===============================
+   🔥 HERO LOGO FIX
+================================ */
+.hero-logo {
+  margin-top: 50px;
+  opacity: 0.9;
+}
+
+.hero-logo img:first-child {
+  width: 120px;
+}
+
+.hero-logo img:last-child {
+  height: 80px;
+  margin-left: -70px;
+}
+
+/* ===============================
+   📱 MOBILE RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .premium-input {
+    flex-direction: column;
+    padding: 12px;
+  }
+
+  .premium-input input {
+    width: 100%;
+  }
+
+  .download-btn {
+    width: 100%;
+  }
+
+  .paste-btn {
+    width: 100%;
+  }
+}
