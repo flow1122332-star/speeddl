@@ -9,6 +9,8 @@
   --s: #F97316;
   --blue: #3b82f6;
   --blue-dark: #2563eb;
+  --red: #EF4444;
+  --red-dark: #DC2626;
   --grad: linear-gradient(135deg, #FBBF24 0%, #F97316 100%);
   --text: #1a1a1a;
   --bg: #fff;
@@ -93,7 +95,7 @@ header {
   height: 26px;
   width: auto;
   display: block;
-  margin-left: -25px;
+  margin-left: -14px;
 }
 
 nav {
@@ -197,20 +199,20 @@ nav a:hover { color: var(--p); }
 
 .cat-nav {
   display: flex;
-  gap: 6px;
+  gap: 8px;
   justify-content: center;
   flex-wrap: wrap;
   margin-bottom: 24px;
 }
 
 .cat-btn {
-  background: rgba(255,255,255,.18);
+  background: rgba(255,255,255,.22);
   color: #fff;
-  padding: 6px 14px;
-  border-radius: 6px;
+  padding: 8px 18px;
+  border-radius: 20px;
   font-size: 13px;
   font-weight: 500;
-  border: 1px solid rgba(255,255,255,.25);
+  border: 1px solid rgba(255,255,255,.3);
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -224,7 +226,7 @@ nav a:hover { color: var(--p); }
 }
 
 .cat-btn:hover {
-  background: rgba(255,255,255,.32);
+  background: rgba(255,255,255,.35);
   transform: translateY(-1px);
 }
 
@@ -246,21 +248,22 @@ nav a:hover { color: var(--p); }
 
 .input-box {
   display: flex;
-  max-width: 700px;
+  max-width: 620px;
   margin: 0 auto;
   background: #fff;
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 6px;
   box-shadow: 0 10px 40px rgba(0,0,0,.25);
   align-items: center;
   gap: 6px;
+  min-height: 64px;
 }
 
 .input-box input {
   flex: 1;
   border: none;
   outline: none;
-  padding: 14px 18px;
+  padding: 18px 20px;
   font-size: 15px;
   border-radius: 8px;
   color: #1a1a1a;
@@ -276,7 +279,7 @@ nav a:hover { color: var(--p); }
 .clear-btn {
   background: #f0f0f0;
   color: #333;
-  padding: 12px 16px;
+  padding: 14px 18px;
   border-radius: 8px;
   font-size: 14px;
   font-weight: 500;
@@ -294,9 +297,9 @@ nav a:hover { color: var(--p); }
 .clear-btn img { width: 16px; height: 16px; }
 
 #downloadBtn {
-  background: var(--blue);
+  background: var(--red);
   color: #fff;
-  padding: 12px 24px;
+  padding: 14px 28px;
   border-radius: 8px;
   font-size: 14px;
   font-weight: 600;
@@ -304,7 +307,7 @@ nav a:hover { color: var(--p); }
   white-space: nowrap;
 }
 
-#downloadBtn:hover { background: var(--blue-dark); }
+#downloadBtn:hover { background: var(--red-dark); }
 #downloadBtn:disabled { opacity: .6; cursor: not-allowed; }
 
 .status {
@@ -333,7 +336,7 @@ nav a:hover { color: var(--p); }
   height: 130px;
   width: auto;
   display: block;
-  margin-left: -105px;
+  margin-left: -90px;
 }
 
 /* ============================================
@@ -419,7 +422,7 @@ nav a:hover { color: var(--p); }
 
 .result-download-btn {
   width: 100%;
-  background: var(--blue);
+  background: var(--red);
   color: #fff;
   padding: 14px;
   border-radius: 8px;
@@ -430,7 +433,7 @@ nav a:hover { color: var(--p); }
   display: block;
 }
 
-.result-download-btn:hover { background: var(--blue-dark); }
+.result-download-btn:hover { background: var(--red-dark); }
 
 .result-caption {
   padding: 16px 20px 0;
@@ -666,7 +669,7 @@ nav a:hover { color: var(--p); }
   border: 1px solid var(--border);
   font-family: 'SF Mono', Monaco, Consolas, monospace;
   word-break: break-all;
-   }
+}
 /* ============================================
    FEATURES GRID (4 cards)
    ============================================ */
@@ -927,7 +930,7 @@ footer {
   height: 26px;
   width: auto;
   display: block;
-  margin-left: -25px;
+  margin-left: -14px;
 }
 
 .footer-nav-cats,
@@ -1069,9 +1072,9 @@ footer {
   .cat-btn {
     padding: 6px 12px;
     font-size: 12px;
-    border-radius: 6px;
+    border-radius: 16px;
   }
-  .cat-btn svg { width: 14px; height: 14px; }
+  .cat-btn svg { width: 13px; height: 13px; }
 
   .input-box {
     flex-direction: column;
@@ -1079,6 +1082,7 @@ footer {
     padding: 8px;
     gap: 6px;
     border-radius: 12px;
+    min-height: auto;
   }
   .input-box input {
     width: 100%;
@@ -1111,7 +1115,7 @@ footer {
   }
   .hero-logo img:last-child {
     height: 80px;
-    margin-left: -30px;
+    margin-left: -55px;
   }
 
   .section { padding: 50px 0; }
@@ -1271,7 +1275,7 @@ footer {
   }
   .hero h1 { font-size: 24px; }
   .cat-btn span { display: none; }
-  .cat-btn { padding: 8px 10px; }
+  .cat-btn { padding: 8px 10px; border-radius: 50%; }
   .cat-btn svg { width: 18px; height: 18px; }
 }
 
@@ -1484,192 +1488,6 @@ footer {
   }
 }
 
-/* ===============================
-   🔥 PREMIUM HEADER FIX
-================================ */
-header {
-  backdrop-filter: blur(10px);
-  background: rgba(255,255,255,0.85);
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-}
-
-/* ===============================
-   🔥 HERO SECTION PREMIUM
-================================ */
-.hero {
-  background: linear-gradient(135deg, #FBBF24, #F97316);
-  padding: 70px 0 140px;
-  text-align: center;
-  color: #fff;
-  position: relative;
-  overflow: hidden;
-}
-
-/* glow effect */
-.hero::before {
-  content: "";
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(255,255,255,0.25), transparent 70%);
-  top: -150px;
-  left: -150px;
-}
-
-/* ===============================
-   🔥 PREMIUM TABS (7 OPTIONS)
-================================ */
-.new-tabs {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 30px;
-  flex-wrap: wrap;
-}
-
-.tab {
-  padding: 10px 18px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.15);
-  border: 1px solid rgba(255,255,255,0.25);
-  color: #fff;
-  font-size: 14px;
-  font-weight: 600;
-  transition: all 0.25s ease;
-  backdrop-filter: blur(10px);
-  cursor: pointer;
-}
-
-.tab:hover {
-  background: rgba(255,255,255,0.3);
-  transform: translateY(-2px);
-}
-
-.tab.active {
-  background: linear-gradient(135deg, #ffffff, #ffe08a);
-  color: #000;
-  border: none;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-}
-
-/* ===============================
-   🔥 HEADING
-================================ */
-.hero h1 {
-  font-size: 48px;
-  font-weight: 800;
-  margin-bottom: 10px;
-}
-
-.subtitle {
-  font-size: 18px;
-  margin-bottom: 30px;
-  opacity: 0.95;
-}
-
-/* ===============================
-   🔥 INPUT BOX (MAIN DESIGN)
-================================ */
-.premium-input {
-  display: flex;
-  max-width: 750px;
-  margin: 0 auto;
-  background: rgba(255,255,255,0.95);
-  border-radius: 14px;
-  padding: 8px;
-  box-shadow: 0 15px 50px rgba(0,0,0,0.25);
-  align-items: center;
-  gap: 8px;
-  backdrop-filter: blur(10px);
-}
-
-/* input field */
-.premium-input input {
-  flex: 1;
-  border: none;
-  outline: none;
-  padding: 16px;
-  font-size: 15px;
-  border-radius: 10px;
-  background: transparent;
-}
-
-/* paste button */
-.premium-input .paste-btn {
-  background: #f1f1f1;
-  color: #333;
-  padding: 12px 18px;
-  border-radius: 10px;
-  font-weight: 600;
-  transition: 0.2s;
-}
-
-.premium-input .paste-btn:hover {
-  background: #e5e5e5;
-}
-
-/* 🔥 DOWNLOAD BUTTON (MAIN FIX) */
-.download-btn {
-  background: linear-gradient(135deg, #FBBF24, #F97316);
-  color: #fff;
-  padding: 14px 26px;
-  border-radius: 10px;
-  font-weight: 700;
-  transition: all 0.25s ease;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-  cursor: pointer;
-}
-
-.download-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-}
-
-/* ===============================
-   🔥 HERO LOGO CLEAN
-================================ */
-.hero-logo {
-  margin-top: 50px;
-  opacity: 0.9;
-}
-
-.hero-logo img:first-child {
-  width: 120px;
-}
-
-.hero-logo img:last-child {
-  height: 80px;
-  margin-left: -70px;
-}
-
-/* ===============================
-   📱 MOBILE RESPONSIVE
-================================ */
-@media (max-width: 768px) {
-
-  .hero h1 {
-    font-size: 32px;
-  }
-
-  .premium-input {
-    flex-direction: column;
-    padding: 12px;
-  }
-
-  .premium-input input {
-    width: 100%;
-  }
-
-  .download-btn {
-    width: 100%;
-  }
-
-  .paste-btn {
-    width: 100%;
-  }
-
-  .tab {
-    font-size: 13px;
-    padding: 8px 14px;
-  }
-}
+/* ============================================
+   END OF STYLESHEET
+   ============================================ */
