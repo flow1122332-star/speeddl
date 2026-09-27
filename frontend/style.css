@@ -93,7 +93,7 @@ header {
   height: 26px;
   width: auto;
   display: block;
-  margin-left: -14px;
+  margin-left: -30px;
 }
 
 nav {
@@ -333,7 +333,7 @@ nav a:hover { color: var(--p); }
   height: 130px;
   width: auto;
   display: block;
-  margin-left: -55px;
+  margin-left: -90px;
 }
 
 /* ============================================
@@ -927,7 +927,7 @@ footer {
   height: 26px;
   width: auto;
   display: block;
-  margin-left: -14px;
+  margin-left: -30px;
 }
 
 .footer-nav-cats,
