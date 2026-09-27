@@ -93,7 +93,7 @@ header {
   height: 26px;
   width: auto;
   display: block;
-  margin-left: -6px;
+  margin-left: -14px;
 }
 
 nav {
@@ -127,7 +127,7 @@ nav a:hover { color: var(--p); }
 [data-theme="dark"] .icon-moon { display: none; }
 [data-theme="dark"] .icon-sun { display: block; filter: invert(1); }
 
-/* Google Translate - compact */
+/* Google Translate */
 .lang-selector {
   display: inline-flex;
   align-items: center;
@@ -333,7 +333,7 @@ nav a:hover { color: var(--p); }
   height: 130px;
   width: auto;
   display: block;
-  margin-left: -30px;
+  margin-left: -55px;
 }
 
 /* ============================================
@@ -666,7 +666,7 @@ nav a:hover { color: var(--p); }
   border: 1px solid var(--border);
   font-family: 'SF Mono', Monaco, Consolas, monospace;
   word-break: break-all;
-}
+   }
 /* ============================================
    FEATURES GRID (4 cards)
    ============================================ */
@@ -927,7 +927,7 @@ footer {
   height: 26px;
   width: auto;
   display: block;
-  margin-left: -6px;
+  margin-left: -14px;
 }
 
 .footer-nav-cats,
@@ -1053,7 +1053,7 @@ footer {
 
   .hi { padding: 10px 16px; }
   .logo img:first-child { width: 40px; height: 40px; }
-  .logo img:last-child { height: 24px; margin-left: -5px; }
+  .logo img:last-child { height: 24px; margin-left: -12px; }
   nav { gap: 14px; }
   nav a { font-size: 14px; }
 
@@ -1111,7 +1111,7 @@ footer {
   }
   .hero-logo img:last-child {
     height: 80px;
-    margin-left: 0;
+    margin-left: -30px;
   }
 
   .section { padding: 50px 0; }
@@ -1241,7 +1241,7 @@ footer {
 
   footer { padding: 45px 0 22px; }
   .footer-logo img:first-child { width: 36px; height: 36px; }
-  .footer-logo img:last-child { height: 22px; margin-left: -5px; }
+  .footer-logo img:last-child { height: 22px; margin-left: -12px; }
   .footer-nav-cats,
   .footer-nav-links {
     font-size: 12px;
