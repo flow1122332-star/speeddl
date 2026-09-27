@@ -1,5 +1,5 @@
 /* ============================================
-   SPEEDDL - COMPLETE JAVASCRIPT (PART 1 OF 2)
+   SPEEDDL - COMPLETE JAVASCRIPT
    ============================================ */
 
 const API_URL = 'https://scrapenest-backend.onrender.com';
@@ -18,9 +18,11 @@ const homeContent = document.getElementById('homeContent');
 
 let globalProfileData = null;
 
+/* ---------- Theme (respects system preference) ---------- */
 (function initTheme() {
   const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'dark') {
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
     document.documentElement.setAttribute('data-theme', 'dark');
   }
 })();
@@ -38,6 +40,7 @@ if (themeToggle) {
   });
 }
 
+/* ---------- Tab Parameter Handler ---------- */
 (function handleTabParameter() {
   const params = new URLSearchParams(window.location.search);
   const tab = params.get('tab');
@@ -76,6 +79,7 @@ if (themeToggle) {
   }, 300);
 })();
 
+/* ---------- Paste Button ---------- */
 if (pasteBtn) {
   pasteBtn.addEventListener('click', async () => {
     try {
@@ -90,6 +94,7 @@ if (pasteBtn) {
   });
 }
 
+/* ---------- Clear Button ---------- */
 if (clearBtn) {
   clearBtn.addEventListener('click', () => {
     urlInput.value = '';
@@ -100,13 +105,15 @@ if (clearBtn) {
   });
 }
 
+/* ---------- Download Button ---------- */
 if (downloadBtn) {
   downloadBtn.addEventListener('click', handleDownload);
-  urlInput.addEventListener('keypress', e => {
+  urlInput.addEventListener('keydown', e => {
     if (e.key === 'Enter') handleDownload();
   });
 }
 
+/* ---------- Handle Download ---------- */
 async function handleDownload() {
   const url = urlInput.value.trim();
 
@@ -123,13 +130,18 @@ async function handleDownload() {
 
   showLoading();
 
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 30000);
+
   try {
     const response = await fetch(`${API_URL}/api/download`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ url })
+      body: JSON.stringify({ url }),
+      signal: controller.signal
     });
 
+    clearTimeout(timeoutId);
     const data = await response.json();
 
     if (!response.ok) {
@@ -143,10 +155,16 @@ async function handleDownload() {
     showResult(data);
 
   } catch (err) {
-    showError(err.message);
+    clearTimeout(timeoutId);
+    if (err.name === 'AbortError') {
+      showError('Request timed out. Please try again.');
+    } else {
+      showError(err.message);
+    }
   }
 }
 
+/* ---------- Show Loading ---------- */
 function showLoading() {
   if (homeContent) homeContent.classList.add('hidden');
   if (resultsSection) resultsSection.classList.add('hidden');
@@ -156,6 +174,7 @@ function showLoading() {
   if (pasteBtn) pasteBtn.classList.add('hidden');
   if (clearBtn) clearBtn.classList.remove('hidden');
   status.textContent = '';
+  if (loadingText) loadingText.textContent = '';
 
   const url = urlInput.value.toLowerCase();
   let mediaType = 'media';
@@ -176,6 +195,7 @@ function showLoading() {
   }, 100);
 }
 
+/* ---------- Show Result ---------- */
 function showResult(data) {
   if (loadingSection) loadingSection.classList.add('hidden');
 
@@ -196,7 +216,7 @@ function showResult(data) {
   }, 100);
 }
 
-// CLEAN SINGLE RESULT CARD (NO DUPLICATE SEARCH RESULT, NO FAKE 0 LIKES)
+/* ---------- Render Media View ---------- */
 function renderMediaView(data) {
   const medias = data.medias || [];
   let html = '';
@@ -223,7 +243,7 @@ function renderMediaView(data) {
         </div>
 
         <div style="padding:14px 16px 12px;">
-          <a href="${escapeHtml(downloadUrl)}" download class="result-download-btn" style="display:block; text-align:center; background:#0284c7; color:white; padding:12px 16px; border-radius:10px; font-weight:700; text-decoration:none; font-size:0.95rem;">
+          <a href="${escapeHtml(downloadUrl)}" download class="result-download-btn" style="display:block; text-align:center; background:#EF4444; color:white; padding:12px 16px; border-radius:10px; font-weight:700; text-decoration:none; font-size:0.95rem;">
             Download
           </a>
         </div>
@@ -238,6 +258,7 @@ function renderMediaView(data) {
   if (resultContent) resultContent.innerHTML = html;
 }
 
+/* ---------- Play Live Video ---------- */
 window.playLiveVideo = function(containerId, videoUrl) {
   const container = document.getElementById(containerId);
   if (!container) return;
@@ -245,11 +266,7 @@ window.playLiveVideo = function(containerId, videoUrl) {
     <video src="${videoUrl}" controls autoplay playsinline style="width:100%; height:100%; object-fit:contain; background:#000;"></video>
   `;
 };
-/* ============================================
-   SPEEDDL - SCRIPT.JS (PART 2 OF 2)
-   ============================================ */
-
-// FASTDL PROFILE VIEW
+/* ---------- Render Profile View ---------- */
 function renderProfileView(data) {
   const postsCount = (data.posts || []).length;
   const storiesCount = (data.stories || []).length;
@@ -269,7 +286,7 @@ function renderProfileView(data) {
             <a href="https://www.instagram.com/${escapeHtml(data.username)}/" target="_blank" rel="noopener noreferrer" style="color:#0284c7; text-decoration:none; font-size:0.9rem;">↗</a>
           </div>
           <div style="display:flex; gap:18px; margin-bottom:8px; font-size:0.85rem; color:#64748b;">
-            <div><b style="color:var(--text, #0f172a); font-size:0.95rem;">${escapeHtml(data.postsCount || '0')}</b> posts</div>
+            <div><b style="color:var(--text, #0f172a); font-size:0.95rem;">${postsCount}</b> posts</div>
             <div><b style="color:var(--text, #0f172a); font-size:0.95rem;">${escapeHtml(data.followers || '0')}</b> followers</div>
             <div><b style="color:var(--text, #0f172a); font-size:0.95rem;">${escapeHtml(data.following || '0')}</b> following</div>
           </div>
@@ -291,11 +308,13 @@ function renderProfileView(data) {
 
   if (resultContent) resultContent.innerHTML = html;
 
-  resultContent.querySelectorAll('.profile-tab').forEach(tabEl => {
-    tabEl.addEventListener('click', () => {
-      switchActiveTab(tabEl.dataset.tab);
+  if (resultContent) {
+    resultContent.querySelectorAll('.profile-tab').forEach(tabEl => {
+      tabEl.addEventListener('click', () => {
+        switchActiveTab(tabEl.dataset.tab);
+      });
     });
-  });
+  }
 
   if (postsCount > 0) switchActiveTab('posts');
   else if (storiesCount > 0) switchActiveTab('stories');
@@ -303,6 +322,7 @@ function renderProfileView(data) {
   else if (reelsCount > 0) switchActiveTab('reels');
 }
 
+/* ---------- Switch Active Tab ---------- */
 function switchActiveTab(tab) {
   const data = globalProfileData;
   if (!data) return;
@@ -320,6 +340,7 @@ function switchActiveTab(tab) {
   const content = document.getElementById('profileTabContent');
   if (!content) return;
 
+  /* ---------- Posts ---------- */
   if (tab === 'posts') {
     const posts = data.posts || [];
     if (posts.length === 0) {
@@ -337,7 +358,7 @@ function switchActiveTab(tab) {
           </div>
           <div style="padding:8px 10px; display:flex; flex-direction:column; justify-content:space-between; flex:1;">
             <div style="font-size:0.75rem; color:#64748b; margin-bottom:6px;">❤️ ${(item.likes || 0).toLocaleString()} &bull; 💬 ${item.comments || 0}</div>
-            <a href="${escapeHtml(item.url)}" download class="result-download-btn" style="background:#0284c7; color:white; padding:7px 4px; border-radius:6px; font-size:0.78rem; font-weight:700; text-align:center; text-decoration:none; display:block;">Download</a>
+            <a href="${escapeHtml(item.url)}" download class="result-download-btn" style="background:#EF4444; color:white; padding:7px 4px; border-radius:6px; font-size:0.78rem; font-weight:700; text-align:center; text-decoration:none; display:block;">Download</a>
           </div>
         </div>
       `;
@@ -345,6 +366,8 @@ function switchActiveTab(tab) {
     html += `</div>`;
     content.innerHTML = html;
   }
+
+  /* ---------- Reels ---------- */
   else if (tab === 'reels') {
     const reels = data.reels || [];
     if (reels.length === 0) {
@@ -361,7 +384,7 @@ function switchActiveTab(tab) {
           </div>
           <div style="padding:8px 10px; display:flex; flex-direction:column; justify-content:space-between; flex:1;">
             <div style="font-size:0.75rem; color:#64748b; margin-bottom:6px;">❤️ ${(item.likes || 0).toLocaleString()} &bull; 💬 ${item.comments || 0}</div>
-            <a href="${escapeHtml(item.url)}" download class="result-download-btn" style="background:#0284c7; color:white; padding:7px 4px; border-radius:6px; font-size:0.78rem; font-weight:700; text-align:center; text-decoration:none; display:block;">Download Reel</a>
+            <a href="${escapeHtml(item.url)}" download class="result-download-btn" style="background:#EF4444; color:white; padding:7px 4px; border-radius:6px; font-size:0.78rem; font-weight:700; text-align:center; text-decoration:none; display:block;">Download Reel</a>
           </div>
         </div>
       `;
@@ -369,6 +392,8 @@ function switchActiveTab(tab) {
     html += `</div>`;
     content.innerHTML = html;
   }
+
+  /* ---------- Stories ---------- */
   else if (tab === 'stories') {
     const stories = data.stories || [];
     if (stories.length === 0) {
@@ -384,7 +409,7 @@ function switchActiveTab(tab) {
             <div style="position:absolute; top:6px; right:6px; color:white; font-size:0.8rem; text-shadow:0 1px 3px rgba(0,0,0,0.8);">${s.type === 'video' ? '▶' : '⛶'}</div>
           </div>
           <div style="padding:8px;">
-            <a href="${escapeHtml(s.url)}" download class="result-download-btn" style="background:#0284c7; color:white; padding:8px 4px; border-radius:6px; font-size:0.78rem; font-weight:700; text-align:center; text-decoration:none; display:block;">Download Story</a>
+            <a href="${escapeHtml(s.url)}" download class="result-download-btn" style="background:#EF4444; color:white; padding:8px 4px; border-radius:6px; font-size:0.78rem; font-weight:700; text-align:center; text-decoration:none; display:block;">Download Story</a>
           </div>
         </div>
       `;
@@ -392,6 +417,8 @@ function switchActiveTab(tab) {
     sHtml += `</div>`;
     content.innerHTML = sHtml;
   }
+
+  /* ---------- Highlights ---------- */
   else if (tab === 'highlights') {
     const hls = data.highlights || [];
     if (hls.length === 0) {
@@ -419,6 +446,7 @@ function switchActiveTab(tab) {
   }
 }
 
+/* ---------- Open Highlight Album ---------- */
 async function openHighlightAlbum(id, title) {
   const viewer = document.getElementById('albumViewer');
   if (!viewer) return;
@@ -450,7 +478,7 @@ async function openHighlightAlbum(id, title) {
             <div style="position:absolute; top:6px; right:6px; color:white; font-size:0.8rem; text-shadow:0 1px 3px rgba(0,0,0,0.8);">${item.type === 'video' ? '▶' : '⛶'}</div>
           </div>
           <div style="padding:8px;">
-            <a href="${escapeHtml(item.url)}" download class="result-download-btn" style="background:#0284c7; color:white; padding:8px 4px; border-radius:6px; font-size:0.78rem; font-weight:700; text-align:center; text-decoration:none; display:block;">Download Item ${idx + 1}</a>
+            <a href="${escapeHtml(item.url)}" download class="result-download-btn" style="background:#EF4444; color:white; padding:8px 4px; border-radius:6px; font-size:0.78rem; font-weight:700; text-align:center; text-decoration:none; display:block;">Download Item ${idx + 1}</a>
           </div>
         </div>
       `;
@@ -470,6 +498,7 @@ async function openHighlightAlbum(id, title) {
   }
 }
 
+/* ---------- Show Error ---------- */
 function showError(message) {
   if (loadingSection) loadingSection.classList.add('hidden');
   if (homeContent) homeContent.classList.remove('hidden');
@@ -484,6 +513,7 @@ function showError(message) {
   }
 }
 
+/* ---------- Escape HTML ---------- */
 function escapeHtml(text) {
   if (text === null || text === undefined) return '';
   return String(text)
@@ -495,6 +525,7 @@ function escapeHtml(text) {
     .replace(/`/g, '&#96;');
 }
 
+/* ---------- Lazy Loading ---------- */
 (function initLazyLoading() {
   if ('loading' in HTMLImageElement.prototype) {
     document.querySelectorAll('img:not([loading])').forEach(img => {
@@ -506,11 +537,31 @@ function escapeHtml(text) {
   }
 })();
 
+/* ---------- Set Year ---------- */
 (function setYear() {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 })();
 
+/* ---------- Back to Top ---------- */
+(function initBackToTop() {
+  const btn = document.getElementById('backToTop');
+  if (!btn) return;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  }, { passive: true });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
+/* ---------- About Page Animations ---------- */
 (function initAboutAnimations() {
   function animateCount(el, target, duration = 1800) {
     const isDecimal = target % 1 !== 0;
@@ -571,4 +622,26 @@ function escapeHtml(text) {
       });
     });
   }
+})();
+
+/* ============================================
+   GOOGLE TRANSLATE — Auto Init
+   ============================================ */
+(function initGoogleTranslate() {
+  const el = document.getElementById('google_translate_element');
+  if (!el) return;
+
+  window.googleTranslateElementInit = function() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,hi,bn,ta,te,mr,gu,kn,ml,pa,ur,ar,es,fr,de,it,pt,ru,ja,ko,zh-CN,id,ms,th,tr,vi,nl,pl,fa',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+    }, 'google_translate_element');
+  };
+
+  const script = document.createElement('script');
+  script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+  script.async = true;
+  document.body.appendChild(script);
 })();
